@@ -33,11 +33,20 @@ This is not a general speech ML research stack. It is a practical interaction-qu
 
 * `scripts/analyze_timing.py`: estimates silence ratio and pause-duration summaries from an audio file, with optional CSV output.
 * `scripts/compare_versions.py`: compares raw and designed timing metrics from a CSV.
-* `scripts/gemini_eval.py`: sends text-based reviewer notes or transcripts to Gemini and expects structured evaluation output.
+* `scripts/gemini_eval.py`: sends reviewer notes, transcripts, or local audio clips to Gemini and expects structured evaluation output.
 * `scripts/correlation_analysis.py`: computes Pearson correlations across selected metric columns.
 * `reports/`: short exploratory writeups from current timing demos.
 * `examples/`: annotation and reviewer-disagreement examples.
 * `data/sample_metrics.csv`: small calibration dataset for the starter scripts.
+
+## Evaluation Artifacts
+
+Current mini reports are derived from two public small-sample evaluation notes:
+
+* [Mini 01: Raw TTS vs Designed Timing](https://www.notion.so/humlab/Mini-01-TTS-vs-Raw-TTS-vs-Designed-Timing-v2-0-366f36bfa7cc802fbff4ce3920c43d8c?source=copy_link)
+* [Mini 02: Response Style and Interruption Handling](https://www.notion.so/humlab/Mini-02-v1-0-367f36bfa7cc8032b364f0aeb74c1afa?source=copy_link)
+
+These notes include timing metrics, pause-position analysis, Gemini-assisted audio review, and qualitative interaction observations. The experiment audio was self-synthesized and timing-designed; public examples are summarized in this repo, while source audio files are not committed by default.
 
 ## Example Annotation
 
@@ -124,7 +133,13 @@ python scripts/gemini_eval.py examples/reviewer_disagreement.md
 
 `GOOGLE_API_KEY` is also accepted for local setups that already use that variable name.
 
-This starter script reviews text material such as notes, transcripts, or disagreement examples. It does not upload or evaluate audio files directly.
+The same starter script can also review local audio clips:
+
+```bash
+python scripts/gemini_eval.py path/to/audio.wav --notes "raw timing pass"
+```
+
+Self-synthesized experiment audio is not committed to this public repo by default.
 
 ## Working Vocabulary
 
