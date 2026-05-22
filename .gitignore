@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+correlations.csv
+timing_summary.csv
+*.wav
+*.mp3
+*.m4a
+*.flac
+!data/sample_audio/README.md

@@ -1,0 +1,6 @@
+timestamp,failure,severity,note
+00:12,premature interruption,medium,AI enters before hesitation resolves
+00:31,semantic pause,low,pause follows punctuation only
+00:48,compressed turn-taking,high,AI response leaves little room for user self-correction
+01:04,overlong silence,medium,pause starts to feel withholding rather than patient
+01:19,pressure through pacing,medium,rapid acknowledgment makes support feel like a prompt
