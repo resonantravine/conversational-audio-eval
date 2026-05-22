@@ -109,6 +109,8 @@ export GEMINI_API_KEY="..."
 python scripts/gemini_eval.py examples/reviewer_disagreement.md
 ```
 
+`GOOGLE_API_KEY` is also accepted for local setups that already use that variable name.
+
 ## Working Vocabulary
 
 The reviewer vocabulary is expected to evolve. Current terms include patient, rushed, clipped, attentive, hovering, over-responsive, hesitant, calm, pressuring, performative, and grounded.

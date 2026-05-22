@@ -3,22 +3,26 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 from pathlib import Path
 
 from google import genai
+from google.genai import types
 
 
 PROMPT_TEMPLATE = """\
 You are reviewing a conversational AI voice interaction.
 
-Return concise structured notes with these fields:
-- timing_observations
-- perceived_listening
-- interruption_risk
-- conversational_pressure
-- likely_reviewer_disagreement
-- limitations
+Return valid JSON with this shape:
+{{
+  "timing_observations": ["..."],
+  "perceived_listening": "...",
+  "interruption_risk": "...",
+  "conversational_pressure": "...",
+  "likely_reviewer_disagreement": "...",
+  "limitations": ["..."]
+}}
 
 Use exploratory, limitation-aware language. Do not overstate confidence.
 
@@ -28,16 +32,18 @@ Review material:
 
 
 def evaluate_text(review_text: str, model: str) -> str:
-    api_key = os.environ.get("GEMINI_API_KEY")
+    api_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
     if not api_key:
-        raise RuntimeError("Set GEMINI_API_KEY before running Gemini evaluation.")
+        raise RuntimeError("Set GEMINI_API_KEY or GOOGLE_API_KEY before running Gemini evaluation.")
 
     client = genai.Client(api_key=api_key)
     response = client.models.generate_content(
         model=model,
         contents=PROMPT_TEMPLATE.format(review_text=review_text),
+        config=types.GenerateContentConfig(response_mime_type="application/json"),
     )
-    return response.text or ""
+    text = response.text or "{}"
+    return json.dumps(json.loads(text), indent=2)
 
 
 def main() -> None:
