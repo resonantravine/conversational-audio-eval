@@ -41,12 +41,13 @@ This is not a general speech ML research stack. It is a practical interaction-qu
 
 ## Evaluation Artifacts
 
-Current mini reports are derived from two public small-sample evaluation notes:
+Current mini reports are derived from three public small-sample evaluation notes:
 
 * [Mini 01: Raw TTS vs Designed Timing](https://www.notion.so/humlab/Mini-01-TTS-vs-Raw-TTS-vs-Designed-Timing-v2-0-366f36bfa7cc802fbff4ce3920c43d8c?source=copy_link)
 * [Mini 02: Response Style and Interruption Handling](https://www.notion.so/humlab/Mini-02-v1-0-367f36bfa7cc8032b364f0aeb74c1afa?source=copy_link)
+* [LLM-as-Judge Calibration Notes](https://www.notion.so/humlab/LLM-as-Judge-367f36bfa7cc80cb9d99dd044e71d6d9?source=copy_link)
 
-These notes include timing metrics, pause-position analysis, Gemini-assisted audio review, and qualitative interaction observations. The experiment audio was self-synthesized and timing-designed; public examples are summarized in this repo, while source audio files are not committed by default.
+These notes include timing metrics, pause-position analysis, Gemini-assisted audio review, LLM-as-Judge calibration, and qualitative interaction observations. The experiment audio was self-synthesized and timing-designed; public examples are summarized in this repo, while source audio files are not committed by default.
 
 ## Example Annotation
 
