@@ -90,6 +90,13 @@ Analyze one audio file:
 python scripts/analyze_timing.py path/to/audio.wav
 ```
 
+Run a local timing demo without bringing your own audio:
+
+```bash
+python scripts/generate_sample_audio.py
+python scripts/analyze_timing.py data/sample_audio/demo_timing.wav
+```
+
 Compare timing variants:
 
 ```bash
