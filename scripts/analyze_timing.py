@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import argparse
+import csv
+import sys
 from pathlib import Path
 
 import librosa
@@ -37,11 +39,22 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("audio_path", type=Path)
     parser.add_argument("--top-db", type=float, default=30.0)
+    parser.add_argument("--output", type=Path, help="Optional CSV output path.")
     args = parser.parse_args()
 
     metrics = analyze_timing(args.audio_path, top_db=args.top_db)
-    for key, value in metrics.items():
-        print(f"{key},{value}")
+    rows = [{"metric": key, "value": value} for key, value in metrics.items()]
+
+    writer = csv.DictWriter(sys.stdout, fieldnames=["metric", "value"])
+    writer.writeheader()
+    writer.writerows(rows)
+
+    if args.output:
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        with args.output.open("w", newline="", encoding="utf-8") as output_file:
+            file_writer = csv.DictWriter(output_file, fieldnames=["metric", "value"])
+            file_writer.writeheader()
+            file_writer.writerows(rows)
 
 
 if __name__ == "__main__":

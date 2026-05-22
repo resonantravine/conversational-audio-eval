@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 
 import pandas as pd
@@ -50,6 +51,13 @@ def main() -> None:
     args = parser.parse_args()
 
     results = correlation_analysis(args.csv_path, args.target, args.metrics)
+    sample_size = len(pd.read_csv(args.csv_path).dropna(subset=[args.target]))
+    if sample_size < 10:
+        print(
+            f"warning: sample size is {sample_size}; treat correlations as exploratory only.",
+            file=sys.stderr,
+        )
+
     results.to_csv(args.output, index=False)
     print(results.to_csv(index=False))
 

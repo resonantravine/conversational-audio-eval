@@ -31,9 +31,9 @@ This is not a general speech ML research stack. It is a practical interaction-qu
 
 ## Repository Contents
 
-* `scripts/analyze_timing.py`: estimates silence ratio and pause-duration summaries from an audio file.
+* `scripts/analyze_timing.py`: estimates silence ratio and pause-duration summaries from an audio file, with optional CSV output.
 * `scripts/compare_versions.py`: compares raw and designed timing metrics from a CSV.
-* `scripts/gemini_eval.py`: sends reviewer-style prompts to Gemini and expects structured evaluation output.
+* `scripts/gemini_eval.py`: sends text-based reviewer notes or transcripts to Gemini and expects structured evaluation output.
 * `scripts/correlation_analysis.py`: computes Pearson correlations across selected metric columns.
 * `reports/`: short exploratory writeups from current timing demos.
 * `examples/`: annotation and reviewer-disagreement examples.
@@ -90,6 +90,12 @@ Analyze one audio file:
 python scripts/analyze_timing.py path/to/audio.wav
 ```
 
+Write timing metrics to CSV:
+
+```bash
+python scripts/analyze_timing.py path/to/audio.wav --output timing_summary.csv
+```
+
 Run a local timing demo without bringing your own audio:
 
 ```bash
@@ -117,6 +123,8 @@ python scripts/gemini_eval.py examples/reviewer_disagreement.md
 ```
 
 `GOOGLE_API_KEY` is also accepted for local setups that already use that variable name.
+
+This starter script reviews text material such as notes, transcripts, or disagreement examples. It does not upload or evaluate audio files directly.
 
 ## Working Vocabulary
 
