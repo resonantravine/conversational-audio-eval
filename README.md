@@ -1,17 +1,12 @@
 # Conversational Audio Evaluation
 
-Lightweight evaluation tools and exploratory studies
-for conversational timing, pause structure,
-and perceived listening in AI voice systems.
+**📌 Related Work – Full AIGC Multi‑modal Evaluation**  
+This repository is part of my broader work on AIGC audio‑visual quality assessment. For structured audio description, badcase attribution, and caption optimization (6 video samples + 1 audio badcase), see:  
+**[AIGC Video‑Audio Evaluation | Caption Optimization & Badcase Attribution](<https://humlab.notion.site/AIGC-Video-Audio-Evaluation-Caption-Badcase-37af36bfa7cc80e38025ef918e3fff82?source=copy_link>)**  
 
-Current focus:
-
-* conversational timing
-* pause engineering
-* interruption behavior
-* response pacing
-* conversational pressure
-* perceived listening
+**Quick Navigation**  
+- [AIGC multi‑modal evaluation (caption & Foley)](https://humlab.notion.site/373f36bfa7cc80399375ce35b935ba40?v=373f36bfa7cc80e49b69000c85daca85&source=copy_link)  
+- [Voice agent timing evaluation (this repo)](.)
 
 ## Project Scope
 
